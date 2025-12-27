@@ -29,7 +29,7 @@ function Navigation() {
         <ul className="h-full flex items-center justify-center md:justify-end flex-wrap gap-x-6 gap-y-2">
           <li>
             <Link
-              to="#"
+              to="About"
               className="font-[var(--font-google)] font-extrabold text-black text-xl md:text-3xl lg:text-6xl"
             >
               About Me
@@ -38,7 +38,7 @@ function Navigation() {
 
           <li>
             <Link
-              to="#"
+              to="/portafolio "
               className="font-[var(--font-google)] font-extrabold text-black text-xl md:text-3xl lg:text-6xl"
             >
               Portfolio
@@ -47,7 +47,7 @@ function Navigation() {
 
           <li>
             <Link
-              to="#"
+              to="/blog"
               className="font-[var(--font-google)] font-extrabold text-black text-xl md:text-3xl lg:text-6xl"
             >
               Blog
