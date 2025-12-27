@@ -1,49 +1,62 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import { Link } from "react-router-dom";
 
 function Navigation() {
   return (
+    <nav className="w-full flex flex-col md:flex-row">
+      {/* LEFT PANEL */}
+      <div
+        className="
+          bg-black flex items-center justify-center md:justify-start
+          w-full md:w-[520px] lg:w-[920px] xl:w-[920px]
+          h-20 md:h-28 lg:h-36 xl:h-44
+          px-6 md:px-10
+        "
+      >
+        <div className="text-white font-[var(--font-google)] font-extrabold tracking-tight text-4xl md:text-6xl xl:text-8xl">
+          AACC
+        </div>
+      </div>
 
-    <nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <Link class="nav-link active" aria-current="page" to='/'>About</Link>
-          
-        </li>
-        <li class="nav-item">
-          <Link class="nav-link active" aria-current="page" to='/blog'>blog</Link>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"/></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
+      {/* RIGHT PANEL */}
+      <div
+        className="
+          flex-1 bg-[rgb(238,28,37)]
+          h-20 md:h-28 lg:h-36 xl:h-44
+          px-4 md:px-10
+        "
+      >
+        <ul className="h-full flex items-center justify-center md:justify-end flex-wrap gap-x-6 gap-y-2">
+          <li>
+            <Link
+              to="#"
+              className="font-[var(--font-google)] font-extrabold text-black text-xl md:text-3xl lg:text-6xl"
+            >
+              About Me
+            </Link>
+          </li>
 
-  )
+          <li>
+            <Link
+              to="#"
+              className="font-[var(--font-google)] font-extrabold text-black text-xl md:text-3xl lg:text-6xl"
+            >
+              Portfolio
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="#"
+              className="font-[var(--font-google)] font-extrabold text-black text-xl md:text-3xl lg:text-6xl"
+            >
+              Blog
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
 }
 
-export default Navigation
+export default Navigation;

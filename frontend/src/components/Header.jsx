@@ -1,12 +1,12 @@
 import React from 'react'
 import Navigation from './Navigation'
+import '../styles/tailwind.css'
 
 function Header() {
   return (
-    <nav>
-
-      <Navigation></Navigation>
-    </nav>
+    <div>
+      <Navigation />
+    </div>
   )
 }
 

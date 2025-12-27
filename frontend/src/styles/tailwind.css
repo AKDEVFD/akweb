@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+
+
+@theme {
+  --font-google: "Lexend Deca", sans-serif;
+}
