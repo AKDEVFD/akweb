@@ -25,18 +25,16 @@ function ProjectGrid() {
           const rowIndex = Math.floor(index / 2);
           const isFirstCellInRow = index % 2 === 0;
 
-          // your original intercalation logic
+
           const showImageCell = index % 2 !== rowIndex % 2;
 
-          // JSON row (source for URL)
+
           const item = rows[rowIndex] || {};
           const projectId = String(item.id ?? rowIndex + 1);
           const projectUrl = item.url || null;
 
-          // Image for this row (loop through images)
           const img = images.length ? images[rowIndex % images.length] : null;
 
-          // ✅ Title text comes from GitHub image name (parsed)
           const parsedText = img ? parseFromSecondDash(img.name) : "";
           const displayText = parsedText || `PROJECT ${projectId}`;
 
