@@ -1,9 +1,12 @@
-import React from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import aboutData from "../utils/about.json";
+import SkillGrid from "../components/SkillGrid";
+import AboutText from "../components/AboutText";
 
 function About() {
-  const { img, heading, bio } = aboutData;
+  const { img } = aboutData;
+  const [tab, setTab] = useState("skills");
 
   return (
     <section className="w-full min-h-screen bg-white">
@@ -15,8 +18,9 @@ function About() {
         <meta property="og:url" content="/about" />
         <link rel="canonical" href="/about" />
       </Helmet>
-      <div className="max-w-7xl mx-auto px-16 md:px-24 lg:px-40 py-5">
+      <div className="w-full pl-16 md:pl-24 lg:pl-40 pr-16 md:pr-24 lg:pr-40 py-5">
         <div className="flex flex-col md:flex-row gap-10 items-start">
+
           {/* IMAGE COLUMN */}
           <div className="w-full md:w-1/3 shrink-0">
             {img && (
@@ -31,24 +35,27 @@ function About() {
             )}
           </div>
 
-          {/* TEXT COLUMN */}
-          <div className="w-full md:w-2/3">
-            <h1 className="font-[var(--font-google)] text-4xl md:text-5xl font-extrabold text-black text-left">
-              {heading}
-            </h1>
+          {/* RIGHT COLUMN */}
+          <div className="w-full md:w-2/3 flex flex-col gap-6">
 
-            <div className="mt-8">
-              {bio &&
-                bio.map((paragraph, index) => (
-                  <p
-                    key={index}
-                    className="text-base md:text-lg leading-relaxed text-black/80 mt-4 first:mt-0 text-justify"
-                  >
-                    {paragraph}
-                  </p>
-                ))}
+            {/* TOGGLE */}
+            <div className="flex gap-0">
+              {["skills", "cv"].map((t) => (
+                <button
+                  key={t}
+                  onClick={() => setTab(t)}
+                  className={`px-6 py-2 font-[var(--font-google)] font-bold uppercase text-sm tracking-widest transition-colors ${
+                    tab === t ? "bg-black text-white" : "bg-white text-black border border-black"
+                  }`}
+                >
+                  {t}
+                </button>
+              ))}
             </div>
+
+            {tab === "skills" ? <SkillGrid /> : <AboutText />}
           </div>
+
         </div>
       </div>
     </section>

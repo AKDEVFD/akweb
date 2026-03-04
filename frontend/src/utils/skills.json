@@ -1,0 +1,10 @@
+[
+  { "category": "Languages", "items": ["JavaScript", "TypeScript", "Python", "C++", "GLSL", "Bash"] },
+  { "category": "Frontend", "items": ["React", "Three.js", "WebGL", "CSS / Tailwind", "Vite", "GSAP"] },
+  { "category": "Backend", "items": ["Node.js", "Express", "REST APIs", "GraphQL", "WebSockets"] },
+  { "category": "Databases", "items": ["MongoDB", "PostgreSQL", "Redis", "Firebase"] },
+  { "category": "Creative Tech", "items": ["TouchDesigner", "Max/MSP", "Processing", "OpenFrameworks", "p5.js"] },
+  { "category": "AI / ML", "items": ["Machine Learning", "Generative AI", "OpenCV", "TensorFlow", "Stable Diffusion"] },
+  { "category": "Infrastructure", "items": ["Docker", "Linux", "Git", "Nginx", "CI/CD"] },
+  { "category": "Disciplines", "items": ["Creative Coding", "Electronic Art", "Interactive Design", "Real-time Graphics", "Sound Design", "Projection Mapping"] }
+]
