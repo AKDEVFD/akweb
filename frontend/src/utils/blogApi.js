@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE = 'http://localhost:3001'
+const BASE = import.meta.env.VITE_API_URL || ''
 
 function getAuthorId() {
   const token = localStorage.getItem('token')
