@@ -127,7 +127,7 @@ export default function EnterBlog() {
         <RichField
           label="Content — short tagline"
           editorRef={contentRef}
-          minHeight="min-h-[80px]"
+          minHeight="min-h-[320px]"
           textSize="text-lg"
           placeholder='e.g. "A short reflection on how machines remember and what they forget."'
         />
@@ -136,7 +136,7 @@ export default function EnterBlog() {
         <RichField
           label="Synopsis — body note"
           editorRef={synopsisRef}
-          minHeight="min-h-[100px]"
+          minHeight="min-h-[200px]"
           textSize="text-base"
           placeholder='e.g. "Notes on storage, retrieval, and the politics of keeping data alive in the background."'
         />

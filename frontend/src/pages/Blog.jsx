@@ -11,7 +11,7 @@ function stripHtml(html) {
 
 function ImageCell({ blog }) {
   return (
-    <Link to={`/blog/${blog._id}`} className="w-[920px] h-[360px] relative overflow-hidden block">
+    <Link to={`/blog/${blog.slug || blog._id}`} className="w-[920px] h-[360px] relative overflow-hidden block">
       {blog.coverImage
         ? <img src={blog.coverImage} alt={blog.title} className="absolute inset-0 w-full h-full object-cover" />
         : <div className="absolute inset-0 bg-[rgb(1,90,172)]" />
@@ -25,7 +25,7 @@ function ContentCell({ blog }) {
   const synopsis = stripHtml(blog.blog_content?.[1]?.body)
 
   return (
-    <Link to={`/blog/${blog._id}`} className="w-[920px] h-[360px] relative overflow-hidden block">
+    <Link to={`/blog/${blog.slug || blog._id}`} className="w-[920px] h-[360px] relative overflow-hidden block">
       <div className="absolute inset-0 bg-[rgb(252,252,252)] flex items-center">
         <div className="px-12 md:px-16 w-full">
           <h2
@@ -87,8 +87,8 @@ export default function BlogGrid() {
         <meta name="description" content="Writing and reflections by Andrés Cedillo on technology, electronic art, generative visuals, and creative software." />
         <meta property="og:title" content="Blog | Andrés Cedillo" />
         <meta property="og:description" content="Writing and reflections on technology, electronic art, and creative software." />
-        <meta property="og:url" content="/blog" />
-        <link rel="canonical" href="/blog" />
+        <meta property="og:url" content={`${import.meta.env.VITE_SITE_URL || 'https://andrescedillo.com'}/blog`} />
+        <link rel="canonical" href={`${import.meta.env.VITE_SITE_URL || 'https://andrescedillo.com'}/blog`} />
       </Helmet>
       <div className="grid grid-cols-2 gap-px w-fit mx-auto overflow-visible">
         {blogs.map((blog, i) =>

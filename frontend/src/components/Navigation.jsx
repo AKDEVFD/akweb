@@ -8,10 +8,13 @@ function Navigation() {
   return (
     <nav className="w-full bg-white relative h-20 md:h-28 lg:h-36 xl:h-44 flex items-center">
       {/* LOGO — absolutely centered */}
-      <div className="absolute inset-0 flex items-center justify-center z-10">
-        <a href="/" className="text-black font-[var(--font-header)] font-extrabold tracking-tight uppercase text-4xl md:text-6xl xl:text-8xl cursor-pointer">
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+        <a href="/" className="text-black font-[var(--font-header)] font-extrabold tracking-tight uppercase text-4xl md:text-6xl xl:text-8xl cursor-pointer leading-none">
           AACC
         </a>
+        <p className="text-black/50 text-[8px] md:text-[10px] tracking-[0.2em] uppercase mt-1 text-center font-[var(--font-google)]">
+          Software Developer &nbsp;·&nbsp; Creative Technologist &nbsp;·&nbsp; New Media Artist
+        </p>
       </div>
 
       {/* MENU BUTTON — pinned to the right */}

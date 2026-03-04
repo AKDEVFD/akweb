@@ -19,7 +19,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/portfolio" element={<Portafolio />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogPost />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/description" element={<Description />} />
         <Route
