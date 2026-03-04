@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import ImageCardGrid from "../components/ImageCardGrid.jsx";
+import PortafolioSkills from "../components/PortafolioSkills.jsx";
 
 export default function Portafolio() {
   return (
@@ -12,6 +13,7 @@ export default function Portafolio() {
         <meta property="og:url" content="https://andrescedillo.com" />
         <link rel="canonical" href="https://andrescedillo.com" />
       </Helmet>
+      <PortafolioSkills />
       <ImageCardGrid />
     </div>
   );

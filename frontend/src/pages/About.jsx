@@ -15,8 +15,8 @@ function About() {
         <meta name="description" content="Andrés Cedillo is a technologist and software developer specializing in electronic art, machine learning, generative visuals, and interactive software. Founder of Automata Lab, Mexico City." />
         <meta property="og:title" content="About | Andrés Cedillo — Creative Technologist" />
         <meta property="og:description" content="Technologist and software developer with 10+ years in the entertainment and interactive design industry. Founder of Automata Lab." />
-        <meta property="og:url" content="/about" />
-        <link rel="canonical" href="/about" />
+        <meta property="og:url" content="https://andrescedillo.com/about" />
+        <link rel="canonical" href="https://andrescedillo.com/about" />
       </Helmet>
       <div className="w-full pl-16 md:pl-24 lg:pl-40 pr-16 md:pr-24 lg:pr-40 py-5">
         <div className="flex flex-col md:flex-row gap-10 items-start">
