@@ -1,77 +1,108 @@
-import React from "react";
+import { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
-const blogPosts = [
-  {
-    title: "Post 01 — Machine Memory",
-    content: "A short reflection on how machines remember and what they forget.",
-    synopsis:
-      "Notes on storage, retrieval, and the politics of keeping data alive in the background.",
-  },
-  {
-    title: "Post 02 — Latent Cities",
-    content: "Mapping Mexico City as an embedding space of sound and movement.",
-    synopsis:
-      "From MFCCs to t-SNE: a practical approach to turning urban noise into navigable geometry.",
-  },
-  {
-    title: "Post 03 — Federated Dreams",
-    content:
-      "Building search tools that protect communities while expanding collective imagination.",
-    synopsis:
-      "A prototype direction: explainable ranking, rotating proxies, and local-first archives.",
-  },
-  {
-    title: "Post 04 — Real-time Rituals",
-    content: "TouchDesigner as a stage for feedback loops and responsive narratives.",
-    synopsis:
-      "Designing scenes as state machines: when sensors, voice, and visuals become one system.",
-  },
-];
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001'
 
-function BlogGrid() {
-  return (
-    <section className="bg-[rgb(238,28,37)] py-24">
-      <div className="grid grid-cols-2 gap-px w-fit mx-auto overflow-visible">
-        {[...Array(18)].map((_, index) => {
-          const row = Math.floor(index / 2);
-
-          // SAME intercalation logic
-          const showContent = (index % 2) !== (row % 2);
-
-          const post = blogPosts[row % blogPosts.length];
-
-          return (
-            <div
-              key={index}
-              className="w-[920px] h-[360px] relative overflow-hidden"
-            >
-              {showContent ? (
-                // 🟦 EMPTY / RHYTHM CELL
-                <div className="absolute inset-0 bg-[rgb(1,90,172)]" />
-              ) : (
-                // 🟥 CONTENT CELL
-                <div className="absolute inset-0 bg-[rgb(238,28,37)] flex items-center">
-                  <div className="px-12 md:px-16 w-full">
-                    <h3 className="font-[var(--font-google)] text-4xl md:text-5xl font-extrabold text-black leading-tight">
-                      {post.title}
-                    </h3>
-
-                    <p className="mt-4 text-xl md:text-2xl text-black/90 leading-snug max-w-[40ch]">
-                      {post.content}
-                    </p>
-
-                    <p className="mt-4 text-lg md:text-xl text-black/80 leading-snug max-w-[60ch]">
-                      {post.synopsis}
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </section>
-  );
+function stripHtml(html) {
+  return html?.replace(/<[^>]*>/g, '') || ''
 }
 
-export default BlogGrid;
+function ImageCell({ blog }) {
+  return (
+    <Link to={`/blog/${blog._id}`} className="w-[920px] h-[360px] relative overflow-hidden block">
+      {blog.coverImage
+        ? <img src={blog.coverImage} alt={blog.title} className="absolute inset-0 w-full h-full object-cover" />
+        : <div className="absolute inset-0 bg-[rgb(1,90,172)]" />
+      }
+    </Link>
+  )
+}
+
+function ContentCell({ blog }) {
+  const tagline  = stripHtml(blog.blog_content?.[0]?.body)
+  const synopsis = stripHtml(blog.blog_content?.[1]?.body)
+
+  return (
+    <Link to={`/blog/${blog._id}`} className="w-[920px] h-[360px] relative overflow-hidden block">
+      <div className="absolute inset-0 bg-[rgb(252,252,252)] flex items-center">
+        <div className="px-12 md:px-16 w-full">
+          <h2
+            className="text-4xl md:text-5xl font-extrabold text-black leading-tight"
+            style={{ fontFamily: 'var(--font-google)' }}
+          >
+            {blog.title}
+          </h2>
+          <p className="mt-4 text-xl md:text-2xl text-black/90 leading-snug max-w-[40ch]">
+            {tagline}
+          </p>
+          <p className="mt-4 text-lg md:text-xl text-black/80 leading-snug max-w-[60ch]">
+            {synopsis}
+          </p>
+        </div>
+      </div>
+    </Link>
+  )
+}
+
+export default function BlogGrid() {
+  const [blogs, setBlogs] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    axios.get(`${API_BASE}/blogs`)
+      .then(res => setBlogs(res.data))
+      .catch(console.error)
+      .finally(() => setLoading(false))
+  }, [])
+
+  if (loading) {
+    return (
+      <section className="min-h-screen bg-white flex items-center justify-center">
+        <Helmet>
+          <title>Blog | Andrés Cedillo</title>
+        </Helmet>
+        <p className="text-gray-400 text-sm tracking-widest uppercase">Loading...</p>
+      </section>
+    )
+  }
+
+  if (!blogs.length) {
+    return (
+      <section className="min-h-screen bg-white flex items-center justify-center">
+        <Helmet>
+          <title>Blog | Andrés Cedillo</title>
+          <meta name="description" content="Writing and reflections by Andrés Cedillo on technology, electronic art, and creative software." />
+        </Helmet>
+        <p className="text-gray-400 text-sm tracking-widest uppercase">No posts yet.</p>
+      </section>
+    )
+  }
+
+  return (
+    <section className="bg-white py-24">
+      <Helmet>
+        <title>Blog | Andrés Cedillo</title>
+        <meta name="description" content="Writing and reflections by Andrés Cedillo on technology, electronic art, generative visuals, and creative software." />
+        <meta property="og:title" content="Blog | Andrés Cedillo" />
+        <meta property="og:description" content="Writing and reflections on technology, electronic art, and creative software." />
+        <meta property="og:url" content="/blog" />
+        <link rel="canonical" href="/blog" />
+      </Helmet>
+      <div className="grid grid-cols-2 gap-px w-fit mx-auto overflow-visible">
+        {blogs.map((blog, i) =>
+          i % 2 === 0
+            ? [
+                <ImageCell   key={`image-${blog._id}`}   blog={blog} />,
+                <ContentCell key={`content-${blog._id}`} blog={blog} />,
+              ]
+            : [
+                <ContentCell key={`content-${blog._id}`} blog={blog} />,
+                <ImageCell   key={`image-${blog._id}`}   blog={blog} />,
+              ]
+        )}
+      </div>
+    </section>
+  )
+}

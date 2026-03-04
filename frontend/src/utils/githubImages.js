@@ -1,12 +1,10 @@
 import axios from "axios";
 
-const API_URL =
-  "https://api.github.com/repos/AKDEVFD/akport/contents/reactgrid";
+const BASE_URL = "https://api.github.com/repos/AKDEVFD/akport/contents/";
 
-
-export async function fetchGithubImages() {
+export async function fetchGithubImages(folderPath = "reactgrid") {
   try {
-    const response = await axios.get(API_URL);
+    const response = await axios.get(`${BASE_URL}${folderPath}`);
 
     return response.data.filter(
       (file) =>
