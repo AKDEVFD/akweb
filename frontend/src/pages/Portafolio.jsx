@@ -5,12 +5,12 @@ export default function Portafolio() {
   return (
     <div className="bg-black min-h-screen">
       <Helmet>
-        <title>Portfolio | Andrés Cedillo — Creative Technologist</title>
-        <meta name="description" content="Portfolio of Andrés Cedillo — interactive installations, generative visuals, VR/AR experiences, and creative software projects for clients including Nike, Adidas, Huawei, and events like Burning Man and Mutek." />
-        <meta property="og:title" content="Portfolio | Andrés Cedillo — Creative Technologist" />
-        <meta property="og:description" content="Interactive installations, generative visuals, VR/AR experiences, and creative software projects." />
-        <meta property="og:url" content="/portfolio" />
-        <link rel="canonical" href="/portfolio" />
+        <title>Andrés Cedillo — Software Developer · Creative Technologist · New Media Artist</title>
+        <meta name="description" content="Andrés Cedillo — Software Developer, Creative Technologist and New Media Artist based in Mexico City. Electronic art, generative visuals, interactive installations, and creative software." />
+        <meta property="og:title" content="Andrés Cedillo — Software Developer · Creative Technologist · New Media Artist" />
+        <meta property="og:description" content="Andrés Cedillo — Software Developer, Creative Technologist and New Media Artist based in Mexico City. Electronic art, generative visuals, interactive installations, and creative software." />
+        <meta property="og:url" content="https://andrescedillo.com" />
+        <link rel="canonical" href="https://andrescedillo.com" />
       </Helmet>
       <ImageCardGrid />
     </div>
