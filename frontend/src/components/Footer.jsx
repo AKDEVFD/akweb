@@ -4,7 +4,7 @@ import '../styles/tailwind.css'
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[rgb(255,255,255)] flex items-center justify-center h-20 md:h-28 lg:h-36 xl:h-44">
+    <footer className="w-full bg-red-500 flex items-center justify-center h-20 md:h-28 lg:h-36 xl:h-44">
       <ul className="flex items-center gap-x-10 md:gap-x-16">
         <li>
           <a href="https://www.linkedin.com/in/andr%C3%A9s-cedillo-5a8791106/" target="_blank" rel="noopener noreferrer"

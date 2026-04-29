@@ -5,7 +5,7 @@ import PortafolioBanner from "../components/PortafolioBanner.jsx";
 
 export default function Portafolio() {
   return (
-    <div className="bg-red-600 min-h-screen">
+    <div className="bg-red-500 min-h-screen">
       <Helmet>
         <title>Andrés Cedillo — Software Developer · Creative Technologist · New Media Artist</title>
         <meta name="description" content="Andrés Cedillo — Software Developer, Creative Technologist and New Media Artist based in Mexico City. Electronic art, generative visuals, interactive installations, and creative software." />

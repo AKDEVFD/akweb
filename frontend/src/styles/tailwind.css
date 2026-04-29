@@ -18,7 +18,7 @@
 }
 
 body {
-  background-color: red;
+  background-color: #ef4444;
 }
 
 .blog-editor:empty::before {

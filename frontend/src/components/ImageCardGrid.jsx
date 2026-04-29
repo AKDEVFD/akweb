@@ -24,14 +24,14 @@ export default function ImageCardGrid() {
 
   if (loading) {
     return (
-      <div className="w-full py-24 bg-red-600 flex items-center justify-center">
+      <div className="w-full py-24 bg-red-500 flex items-center justify-center">
         <span className="text-white tracking-widest opacity-50">Loading...</span>
       </div>
     );
   }
 
   return (
-    <section className="bg-red-600 py-10">
+    <section className="bg-red-500 py-10">
       <div className="grid grid-cols-1 gap-4 w-full px-16 md:px-24 lg:px-40">
         {images.map((img, i) => {
           const link = portfolioLinks[i] || null;

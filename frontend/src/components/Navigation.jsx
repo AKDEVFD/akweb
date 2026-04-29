@@ -7,13 +7,13 @@ function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-red-600 relative h-20 md:h-28 lg:h-36 xl:h-44 flex items-center">
+    <nav className="w-full bg-red-500 relative h-20 md:h-28 lg:h-36 xl:h-44 flex items-center">
       {/* LOGO — absolutely centered */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
         <a href="/" className="text-black font-[var(--font-header)] font-extrabold tracking-tight uppercase text-2xl md:text-4xl xl:text-5xl cursor-pointer leading-none">
           Andrés Cedillo Chincoya
         </a>
-        <p className="text-black/50 text-[8px] md:text-[10px] tracking-[0.2em] uppercase mt-1 text-center font-[var(--font-google)]">
+        <p className="text-black font-bold text-[8px] md:text-[10px] tracking-[0.2em] uppercase mt-1 text-center font-[var(--font-google)]">
           Software Developer &nbsp;·&nbsp; Creative Technologist &nbsp;·&nbsp; New Media Artist
         </p>
       </div>
@@ -34,7 +34,7 @@ function Navigation() {
 
         {/* DROPDOWN */}
         {menuOpen && (
-          <ul className="absolute top-full right-0 mt-2 bg-red-600 shadow-lg min-w-[180px] flex flex-col z-50">
+          <ul className="absolute top-full right-0 mt-2 bg-red-500 shadow-lg min-w-[180px] flex flex-col z-50">
             {[
               { to: "/about", label: "About Me" },
               { to: "/portfolio", label: "Portfolio" },

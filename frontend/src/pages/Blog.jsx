@@ -59,7 +59,7 @@ export default function BlogGrid() {
 
   if (loading) {
     return (
-      <section className="min-h-screen bg-red-600 flex items-center justify-center">
+      <section className="min-h-screen bg-red-500 flex items-center justify-center">
         <Helmet>
           <title>Blog | Andrés Cedillo</title>
         </Helmet>
@@ -70,7 +70,7 @@ export default function BlogGrid() {
 
   if (!blogs.length) {
     return (
-      <section className="min-h-screen bg-red-600 flex items-center justify-center">
+      <section className="min-h-screen bg-red-500 flex items-center justify-center">
         <Helmet>
           <title>Blog | Andrés Cedillo</title>
           <meta name="description" content="Writing and reflections by Andrés Cedillo on technology, electronic art, and creative software." />
@@ -81,7 +81,7 @@ export default function BlogGrid() {
   }
 
   return (
-    <section className="bg-red-600 py-24">
+    <section className="bg-red-500 py-24">
       <Helmet>
         <title>Blog | Andrés Cedillo</title>
         <meta name="description" content="Writing and reflections by Andrés Cedillo on technology, electronic art, generative visuals, and creative software." />

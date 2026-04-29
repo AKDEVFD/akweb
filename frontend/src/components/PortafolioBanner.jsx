@@ -2,7 +2,7 @@ export default function PortafolioBanner() {
   const text = "WORKING ALONG COMPANIES, STUDIOS AND PROFESSIONALS TO DEVELOP CREATIVE TECHNOLOGY";
 
   return (
-    <div className="bg-red-600 py-1">
+    <div className="bg-red-500 py-1">
       <div className="bg-black mx-16 md:mx-24 lg:mx-40 overflow-hidden border-t border-b border-white/10 py-5">
         <div className="flex  whitespace-nowrap animate-marquee">
           {[0, 1].map((i) => (

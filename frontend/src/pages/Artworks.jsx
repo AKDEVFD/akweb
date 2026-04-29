@@ -4,7 +4,7 @@ import ImageGridArtworks from "../components/ImageGridArtworks.jsx";
 
 export default function Artworks() {
   return (
-    <div className="bg-red-600 min-h-screen">
+    <div className="bg-red-500 min-h-screen">
       <Helmet>
         <title>Artworks — Andrés Cedillo</title>
         <meta name="description" content="Artworks by Andrés Cedillo — Creative Technologist and New Media Artist based in Mexico City." />
