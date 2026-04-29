@@ -10,7 +10,12 @@ function Navigation() {
     <nav className="w-full bg-red-500 relative h-20 md:h-28 lg:h-36 xl:h-44 flex items-center">
       {/* LOGO — absolutely centered */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-        <a href="/" className="text-black font-[var(--font-header)] font-extrabold tracking-tight uppercase text-2xl md:text-4xl xl:text-5xl cursor-pointer leading-none">
+        <a
+          href="/"
+          title="Andrés Cedillo Chincoya — Software Developer, Creative Technologist and New Media Artist"
+          aria-label="Andrés Cedillo Chincoya — home"
+          className="text-black font-[var(--font-header)] font-extrabold tracking-tight uppercase text-2xl md:text-4xl xl:text-5xl cursor-pointer leading-none"
+        >
           Andrés Cedillo Chincoya
         </a>
         <p className="text-black font-bold text-[8px] md:text-[10px] tracking-[0.2em] uppercase mt-1 text-center font-[var(--font-google)]">

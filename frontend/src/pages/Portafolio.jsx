@@ -14,6 +14,7 @@ export default function Portafolio() {
         <meta property="og:url" content="https://andrescedillo.com" />
         <link rel="canonical" href="https://andrescedillo.com" />
       </Helmet>
+      <h1 className="sr-only">Andrés Cedillo Chincoya — Software Developer, Creative Technologist and New Media Artist</h1>
       <PortafolioBanner />
       <PortafolioClients />
       <ImageCardGrid />

@@ -21,7 +21,7 @@ export default function Footer() {
           </a>
         </li>
         <li>
-          <a href="https://www.instagram.com/automata.xr/" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.instagram.com/andycedillo/" target="_blank" rel="noopener noreferrer"
             aria-label="Automata XR on Instagram"
             className="text-black text-3xl md:text-5xl lg:text-6xl">
             <FaInstagram />
