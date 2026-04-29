@@ -9,6 +9,9 @@ import EnterBlog from './pages/EnterBlog'
 import PrivateRoute from './components/PrivateRoute'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Description from './pages/Description'
+import Artworks from './pages/Artworks'
+
+const SHOW_BLOG = import.meta.env.VITE_SHOW_BLOG === "true";
 
 export default function App() {
   return (
@@ -18,8 +21,9 @@ export default function App() {
         <Route path="/" element={<Portafolio />} />
         <Route path="/about" element={<About />} />
         <Route path="/portfolio" element={<Portafolio />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
+        {SHOW_BLOG && <Route path="/blog" element={<Blog />} />}
+        {SHOW_BLOG && <Route path="/blog/:slug" element={<BlogPost />} />}
+        <Route path="/artworks" element={<Artworks />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/description" element={<Description />} />
         <Route

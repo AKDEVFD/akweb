@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+const api = axios.create({ baseURL: import.meta.env.VITE_API_URL || '' })
 
 function stripHtml(html) {
   return html?.replace(/<[^>]*>/g, '') || ''
@@ -11,7 +11,7 @@ function stripHtml(html) {
 
 function ImageCell({ blog }) {
   return (
-    <Link to={`/blog/${blog.slug || blog._id}`} className="w-[920px] h-[360px] relative overflow-hidden block">
+    <Link to={`/blog/${blog.slug || blog._id}`} className="w-full sm:w-[920px] h-[180px] sm:h-[360px] relative overflow-hidden block">
       {blog.coverImage
         ? <img src={blog.coverImage} alt={blog.title} className="absolute inset-0 w-full h-full object-cover" />
         : <div className="absolute inset-0 bg-[rgb(1,90,172)]" />
@@ -25,19 +25,19 @@ function ContentCell({ blog }) {
   const synopsis = stripHtml(blog.blog_content?.[1]?.body)
 
   return (
-    <Link to={`/blog/${blog.slug || blog._id}`} className="w-[920px] h-[360px] relative overflow-hidden block">
+    <Link to={`/blog/${blog.slug || blog._id}`} className="w-full sm:w-[920px] h-[180px] sm:h-[360px] relative overflow-hidden block">
       <div className="absolute inset-0 bg-[rgb(252,252,252)] flex items-center">
-        <div className="px-12 md:px-16 w-full">
+        <div className="px-6 sm:px-12 md:px-16 w-full">
           <h2
-            className="text-4xl md:text-5xl font-extrabold text-black leading-tight"
+            className="text-xl sm:text-4xl md:text-5xl font-extrabold text-black leading-tight"
             style={{ fontFamily: 'var(--font-google)' }}
           >
             {blog.title}
           </h2>
-          <p className="mt-4 text-xl md:text-2xl text-black/90 leading-snug max-w-[40ch]">
+          <p className="mt-2 sm:mt-4 text-sm sm:text-xl md:text-2xl text-black/90 leading-snug max-w-[40ch]">
             {tagline}
           </p>
-          <p className="mt-4 text-lg md:text-xl text-black/80 leading-snug max-w-[60ch]">
+          <p className="hidden sm:block mt-4 text-lg md:text-xl text-black/80 leading-snug max-w-[60ch]">
             {synopsis}
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function BlogGrid() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    axios.get(`${API_BASE}/blogs`)
+    api.get('/blogs')
       .then(res => setBlogs(res.data))
       .catch(console.error)
       .finally(() => setLoading(false))
@@ -59,7 +59,7 @@ export default function BlogGrid() {
 
   if (loading) {
     return (
-      <section className="min-h-screen bg-white flex items-center justify-center">
+      <section className="min-h-screen bg-red-600 flex items-center justify-center">
         <Helmet>
           <title>Blog | Andrés Cedillo</title>
         </Helmet>
@@ -70,7 +70,7 @@ export default function BlogGrid() {
 
   if (!blogs.length) {
     return (
-      <section className="min-h-screen bg-white flex items-center justify-center">
+      <section className="min-h-screen bg-red-600 flex items-center justify-center">
         <Helmet>
           <title>Blog | Andrés Cedillo</title>
           <meta name="description" content="Writing and reflections by Andrés Cedillo on technology, electronic art, and creative software." />
@@ -81,7 +81,7 @@ export default function BlogGrid() {
   }
 
   return (
-    <section className="bg-white py-24">
+    <section className="bg-red-600 py-24">
       <Helmet>
         <title>Blog | Andrés Cedillo</title>
         <meta name="description" content="Writing and reflections by Andrés Cedillo on technology, electronic art, generative visuals, and creative software." />
@@ -90,7 +90,7 @@ export default function BlogGrid() {
         <meta property="og:url" content={`${import.meta.env.VITE_SITE_URL || 'https://andrescedillo.com'}/blog`} />
         <link rel="canonical" href={`${import.meta.env.VITE_SITE_URL || 'https://andrescedillo.com'}/blog`} />
       </Helmet>
-      <div className="grid grid-cols-2 gap-px w-fit mx-auto overflow-visible">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-px w-full sm:w-fit mx-auto overflow-visible">
         {blogs.map((blog, i) =>
           i % 2 === 0
             ? [

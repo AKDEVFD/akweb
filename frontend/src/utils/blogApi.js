@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const BASE = import.meta.env.VITE_API_URL || ''
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL || '',
+})
 
 function getAuthorId() {
   const token = localStorage.getItem('token')
@@ -20,7 +22,7 @@ function dataUrlToBase64(dataUrl) {
 
 export async function uploadImage(dataUrl, filename) {
   const base64 = dataUrlToBase64(dataUrl)
-  const { data } = await axios.post(`${BASE}/upload/image`, { base64, filename })
+  const { data } = await api.post(`/upload/image`, { base64, filename })
   return data.url  // raw GitHub URL
 }
 
@@ -33,7 +35,7 @@ export async function createBlog({ title, content, synopsis, coverDataUrl, cover
     coverImage = await uploadImage(coverDataUrl, coverFilename)
   }
 
-  const { data } = await axios.post(`${BASE}/blogs`, {
+  const { data } = await api.post(`/blogs`, {
     author,
     title,
     blog_content: [{ body: content }, { body: synopsis }],

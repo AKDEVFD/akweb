@@ -25,7 +25,7 @@ export default function BlogPost() {
 
   if (loading) {
     return (
-      <section className="min-h-screen bg-white flex items-center justify-center">
+      <section className="min-h-screen bg-red-600 flex items-center justify-center">
         <p className="text-gray-400 text-sm tracking-widest uppercase">Loading...</p>
       </section>
     )
@@ -33,7 +33,7 @@ export default function BlogPost() {
 
   if (error || !blog) {
     return (
-      <section className="min-h-screen bg-white flex flex-col items-center justify-center gap-4">
+      <section className="min-h-screen bg-red-600 flex flex-col items-center justify-center gap-4">
         <Helmet><title>Post not found | Andrés Cedillo</title></Helmet>
         <p className="text-gray-400 text-sm tracking-widest uppercase">Post not found.</p>
         <Link to="/blog" className="text-black underline text-sm">← Back to Blog</Link>
@@ -59,7 +59,7 @@ export default function BlogPost() {
   }
 
   return (
-    <article className="min-h-screen bg-white">
+    <article className="min-h-screen bg-red-600">
       <Helmet>
         <title>{blog.title} | Andrés Cedillo</title>
         <meta name="description" content={tagline || `Read "${blog.title}" on the blog of Andrés Cedillo.`} />

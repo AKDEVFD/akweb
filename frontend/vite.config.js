@@ -8,9 +8,9 @@ export default defineConfig({
     tailwindcss()],
   server: {
     proxy: {
-      '/blogs': 'http://localhost:3001',
-      '/upload': 'http://localhost:3001',
-      '/users': 'http://localhost:3001',
+      '/blogs': 'https://api.alexander-kessler.com',
+      '/upload': 'https://api.alexander-kessler.com',
+      '/users': 'https://api.alexander-kessler.com',
     },
   },
 })

@@ -5,6 +5,20 @@
 @theme {
   --font-google: "Lexend Deca", sans-serif;
   --font-header: "Google Sans Flex", sans-serif;
+  --font-editorial: "Bodoni Moda", serif;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+body {
+  background-color: red;
 }
 
 .blog-editor:empty::before {

@@ -1,10 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import ImageCardGrid from "../components/ImageCardGrid.jsx";
-import PortafolioSkills from "../components/PortafolioSkills.jsx";
+import PortafolioClients from "../components/PortafolioClients.jsx";
+import PortafolioBanner from "../components/PortafolioBanner.jsx";
 
 export default function Portafolio() {
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-red-600 min-h-screen">
       <Helmet>
         <title>Andrés Cedillo — Software Developer · Creative Technologist · New Media Artist</title>
         <meta name="description" content="Andrés Cedillo — Software Developer, Creative Technologist and New Media Artist based in Mexico City. Electronic art, generative visuals, interactive installations, and creative software." />
@@ -13,7 +14,8 @@ export default function Portafolio() {
         <meta property="og:url" content="https://andrescedillo.com" />
         <link rel="canonical" href="https://andrescedillo.com" />
       </Helmet>
-      <PortafolioSkills />
+      <PortafolioBanner />
+      <PortafolioClients />
       <ImageCardGrid />
     </div>
   );

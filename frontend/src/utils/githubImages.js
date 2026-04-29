@@ -16,3 +16,18 @@ export async function fetchGithubImages(folderPath = "reactgrid") {
     throw error;
   }
 }
+
+export async function fetchArtworkImages() {
+  const url = "https://api.github.com/repos/AKDEVFD/blogakimg/contents/artworks";
+  try {
+    const response = await axios.get(url);
+    return response.data.filter(
+      (file) =>
+        file.type === "file" &&
+        /\.(png|jpe?g|webp)$/i.test(file.name)
+    );
+  } catch (error) {
+    console.error("Error fetching artwork images:", error);
+    throw error;
+  }
+}

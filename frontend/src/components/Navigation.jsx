@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 function Navigation() {
+  const showBlog = import.meta.env.VITE_SHOW_BLOG === "true";
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-white relative h-20 md:h-28 lg:h-36 xl:h-44 flex items-center">
+    <nav className="w-full bg-red-600 relative h-20 md:h-28 lg:h-36 xl:h-44 flex items-center">
       {/* LOGO — absolutely centered */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-        <a href="/" className="text-black font-[var(--font-header)] font-extrabold tracking-tight uppercase text-4xl md:text-6xl xl:text-8xl cursor-pointer leading-none">
-          AACC
+        <a href="/" className="text-black font-[var(--font-header)] font-extrabold tracking-tight uppercase text-2xl md:text-4xl xl:text-5xl cursor-pointer leading-none">
+          Andrés Cedillo Chincoya
         </a>
         <p className="text-black/50 text-[8px] md:text-[10px] tracking-[0.2em] uppercase mt-1 text-center font-[var(--font-google)]">
           Software Developer &nbsp;·&nbsp; Creative Technologist &nbsp;·&nbsp; New Media Artist
@@ -33,11 +34,12 @@ function Navigation() {
 
         {/* DROPDOWN */}
         {menuOpen && (
-          <ul className="absolute top-full right-0 mt-2 bg-white shadow-lg min-w-[180px] flex flex-col z-50">
+          <ul className="absolute top-full right-0 mt-2 bg-red-600 shadow-lg min-w-[180px] flex flex-col z-50">
             {[
               { to: "/about", label: "About Me" },
               { to: "/portfolio", label: "Portfolio" },
-              { to: "/blog", label: "Blog" },
+              { to: "/artworks", label: "Artworks" },
+              ...(showBlog ? [{ to: "/blog", label: "Blog" }] : []),
             ].map(({ to, label }) => (
               <li key={to}>
                 <Link

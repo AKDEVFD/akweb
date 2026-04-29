@@ -24,14 +24,14 @@ export default function ImageCardGrid() {
 
   if (loading) {
     return (
-      <div className="w-full py-24 bg-white flex items-center justify-center">
+      <div className="w-full py-24 bg-red-600 flex items-center justify-center">
         <span className="text-white tracking-widest opacity-50">Loading...</span>
       </div>
     );
   }
 
   return (
-    <section className="bg-white py-10">
+    <section className="bg-red-600 py-10">
       <div className="grid grid-cols-1 gap-4 w-full px-16 md:px-24 lg:px-40">
         {images.map((img, i) => {
           const link = portfolioLinks[i] || null;
@@ -49,8 +49,8 @@ export default function ImageCardGrid() {
                 loading="lazy"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-black/80 px-4 py-3">
-                <span className="text-white font-[var(--font-header)] font-semibold text-2xl md:text-4xl lg:text-5xl tracking-wide uppercase">
+              <div className="absolute bottom-0 left-0 right-0 bg-black/80 px-2 py-1 sm:px-4 sm:py-3">
+                <span className="text-white font-[var(--font-header)] font-semibold text-sm sm:text-2xl md:text-4xl lg:text-5xl tracking-wide uppercase">
                   {formatTitle(img.name)}
                 </span>
               </div>

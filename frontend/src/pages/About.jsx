@@ -9,7 +9,7 @@ function About() {
   const [tab, setTab] = useState("skills");
 
   return (
-    <section className="w-full min-h-screen bg-white">
+    <section className="w-full min-h-screen bg-red-600">
       <Helmet>
         <title>About | Andrés Cedillo — Creative Technologist</title>
         <meta name="description" content="Andrés Cedillo is a technologist and software developer specializing in electronic art, machine learning, generative visuals, and interactive software. Founder of Automata Lab, Mexico City." />
@@ -45,7 +45,7 @@ function About() {
                   key={t}
                   onClick={() => setTab(t)}
                   className={`px-6 py-2 font-[var(--font-google)] font-bold uppercase text-sm tracking-widest transition-colors ${
-                    tab === t ? "bg-black text-white" : "bg-white text-black border border-black"
+                    tab === t ? "bg-black text-white" : "bg-red-600 text-black border border-black"
                   }`}
                 >
                   {t}
